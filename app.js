@@ -32,9 +32,8 @@ const showImages = (images) => {
 }
 
 const getImages = (query) => {
-  toggleSpinner(true)
+  toggleSpinner(true);
   fetch(`https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`)
-   
     .then(response => response.json())
     .then(data => showImages(data.hits))
     .catch(err => err)
@@ -44,7 +43,6 @@ let slideIndex = 0;
 const selectItem = (event, img) => {
   let element = event.target;
   element.classList.toggle("added");
-  
  let item = sliders.indexOf(img);
        sliders.push(img);
   
@@ -75,7 +73,7 @@ const createSlider = () => {
 
   const temp = document.getElementById('duration').value||1000;
   const duration=Math.abs(temp);
-  sliders.forEach(slide => {
+    sliders.forEach(slide => {
     let item = document.createElement('div')
     item.className = "slider-item";
     item.innerHTML = `<img class="w-100"
